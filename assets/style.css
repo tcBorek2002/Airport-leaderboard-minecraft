@@ -1,0 +1,84 @@
+/* // Set font for entire page: */
+body {
+    font-family: 'Minecraft', sans-serif;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+body, html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: rgb(180, 180, 180);
+}
+
+@media (max-width: 768px) {
+    body {
+        align-items: flex-start;
+    }
+
+    .leaderboard {
+        margin-top: 5%;
+    }
+}
+
+@keyframes moveBackground {
+    0% { background-position: 0 0; }
+    50% { background-position: 100% 0; }
+    100% { background-position: 0 0; }
+}
+
+.leaderboard {
+    position: relative;
+    background: rgba(255, 255, 255, 0.5); /* white background with 50% opacity */
+    border-radius: 10px; /* rounded corners */
+    padding: 20px; /* some padding */
+    padding-top: 0;
+    max-width: 80%;
+}
+
+h3 img {
+    height: 1em;
+    vertical-align: middle;
+    margin-right: 3%;
+}
+
+li h3, li div {
+    margin: 0;
+}
+
+.bg-image {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background: url('wallpaper2.webp') repeat-x;
+    background-size: 130%;
+    animation: moveBackground 20s linear infinite;
+    filter: blur(5px);
+    z-index: -1;
+}
+
+@media (max-width: 768px) {
+    .bg-image {
+        animation-duration: 80s;
+        background-size: cover;
+    }
+}
+
+.footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px; /* adjust as needed */
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+  }
+
+.github-button:hover {
+    filter: brightness(1.4);
+}

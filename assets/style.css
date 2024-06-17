@@ -79,7 +79,7 @@ li h3, li div {
     top: 0;
     bottom: 0;
     background-size: 130%;
-    animation: moveBackground 20s linear infinite;
+    animation: moveBackground 20s ease-in-out infinite;
     filter: blur(5px);
     z-index: -1;
 }

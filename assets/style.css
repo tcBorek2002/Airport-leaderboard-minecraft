@@ -92,13 +92,15 @@ li h3, li div {
 }
 
 .footer {
+    background: rgba(255, 255, 255, 0.5); /* white background with 50% opacity */
+    border-radius: 10px;
+    padding: 0.5%;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100px; /* adjust as needed */
     position: absolute;
     bottom: 0;
-    width: 100%;
+    margin-bottom: 1%;
   }
 
 .github-button:hover {

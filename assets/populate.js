@@ -6,7 +6,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
     document.querySelector('.bg-image').style.backgroundImage = 'url(./assets/wallpapers/' + randomImage + ')';
 
     // Start playing music
-    var tracks = ['A_Familiar_Room.ogg', 'Bromeliad.ogg', 'Crescent_Dunes.ogg', 'Echo_in_the_Wind.ogg'];
+    var tracks = ['A_Familiar_Room.ogg', 'Crescent_Dunes.ogg', 'C418 - Stal.mp3'];
     var randomTrack = tracks[Math.floor(Math.random() * tracks.length)];
     var audio = new Audio('./assets/music/' + randomTrack);
 

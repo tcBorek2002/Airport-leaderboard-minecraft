@@ -43,6 +43,8 @@ window.addEventListener('DOMContentLoaded', (event) => {
             ]
         },
     ]);
+
+    loadServerStatus();
 });
 
 
@@ -99,4 +101,20 @@ function createListItem(item) {
     const ol = document.querySelector('ol');
 
     ol.appendChild(li);
+}
+
+function loadServerStatus() {
+    const requestUrl = 'https://api.mcsrvstat.us/3/play.emphisia.nl';
+    fetch(requestUrl)
+        .then(response => response.json())
+        .then(data => {
+            if (data.online) {
+                document.querySelector('.server-status').innerText = 'Online';
+                document.querySelector('.server-status').style.color = 'rgb(42 226 27)';
+                // document.querySelector('.players').innerText = data.players.online + ' spelers';
+            } else {
+                document.querySelector('.server-status').innerText = 'Offline';
+                document.querySelector('.server-status').style.color = '#FF0000';
+            }
+        });
 }

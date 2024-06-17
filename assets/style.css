@@ -18,6 +18,7 @@ body, html {
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
+    align-items: center;
 }
 
 @media (max-width: 768px) {
@@ -42,7 +43,18 @@ body, html {
     border-radius: 10px; /* rounded corners */
     padding: 20px; /* some padding */
     padding-top: 0;
+    padding-bottom: 0;
     max-width: 80%;
+}
+
+.server-div {
+    position: relative;
+    background: rgba(255, 255, 255, 0.5); /* white background with 50% opacity */
+    border-radius: 10px; /* rounded corners */
+    padding: 20px; /* some padding */
+    max-width: 80%;
+    min-width: 80%;
+    margin-top: 3%;
 }
 
 h3 img {
@@ -55,13 +67,17 @@ li h3, li div {
     margin: 0;
 }
 
+.inline-header {
+    display: inline;
+    margin-right: 2%;
+}
+
 .bg-image {
     position: fixed;
     left: 0;
     right: 0;
     top: 0;
     bottom: 0;
-    background: url('wallpaper2.webp') repeat-x;
     background-size: 130%;
     animation: moveBackground 20s linear infinite;
     filter: blur(5px);

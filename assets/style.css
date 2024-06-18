@@ -1,7 +1,11 @@
+@font-face {
+    font-family: 'Minecraftia';
+    src: url('Minecraftia-Regular.ttf') format('truetype');
+}
+
 /* // Set font for entire page: */
 body {
-    font-family: 'Minecraft', sans-serif;
-    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+    font-family: 'Minecraftia', sans-serif;
 }
 
 body, html {
@@ -11,7 +15,7 @@ body, html {
     display: flex;
     justify-content: center;
     align-items: center;
-    color: rgb(180, 180, 180);
+    color: rgb(255, 255, 255);
 }
 
 .main-content {
@@ -39,8 +43,7 @@ body, html {
 
 .leaderboard {
     position: relative;
-    background: rgba(255, 255, 255, 0.5); /* white background with 50% opacity */
-    border-radius: 10px; /* rounded corners */
+    background: rgba(0, 0, 0, 0.5);
     padding: 20px; /* some padding */
     padding-top: 0;
     padding-bottom: 0;
@@ -49,22 +52,54 @@ body, html {
 
 .server-div {
     position: relative;
-    background: rgba(255, 255, 255, 0.5); /* white background with 50% opacity */
-    border-radius: 10px; /* rounded corners */
+    background: rgba(0, 0, 0, 0.5);
     padding: 20px; /* some padding */
     max-width: 80%;
     min-width: 80%;
     margin-top: 3%;
 }
 
-h3 img {
-    height: 1em;
-    vertical-align: middle;
-    margin-right: 3%;
+.leaderboard-main {
+    height: 100%;
+}
+
+.username-line {
+    display: flex;
+    gap: 3%;
+}
+
+.username-line img {
+    height: 1.5em;
 }
 
 li h3, li div {
     margin: 0;
+}
+
+h1 {
+    margin-bottom: 0;
+}
+
+ol {
+    counter-reset: item;
+    list-style-type: none;
+    padding: 0;
+}
+
+li::before {
+    content: counter(item) ".";
+    counter-increment: item;
+    margin-right: 0.5em;
+    font-size: 1.5em;
+}
+
+li {
+    display: flex;
+    margin-bottom: 0.5em;
+}
+
+li::marker {
+    font-size: 1.5em;
 }
 
 .inline-header {

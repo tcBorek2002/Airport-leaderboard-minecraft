@@ -69,6 +69,10 @@ async function populateList(data) {
 }
 
 function createListItem(item) {
+    const mainDiv = document.createElement('div');
+    mainDiv.className = 'leaderboard-main';
+    const firstLine = document.createElement('div');
+    firstLine.className = 'username-line';
     const li = document.createElement('li');
     const h3 = document.createElement('h3');
     const img = document.createElement('img');
@@ -77,10 +81,11 @@ function createListItem(item) {
     iconLine.style.gap = '3%'
 
     img.src = item.imgUrl;
-    h3.appendChild(img);
+    firstLine.appendChild(img);
     h3.appendChild(document.createTextNode(item.username));
+    firstLine.appendChild(h3)
 
-    li.appendChild(h3);
+    mainDiv.appendChild(firstLine);
     item.icons.forEach(iconItem => {
         const iconDiv = document.createElement('div');
         const text = document.createTextNode(iconItem.iconText);
@@ -96,7 +101,8 @@ function createListItem(item) {
         iconLine.appendChild(iconDiv);
     });
 
-    li.appendChild(iconLine);
+    mainDiv.appendChild(iconLine);
+    li.appendChild(mainDiv);
 
     const ol = document.querySelector('ol');
 

@@ -34,6 +34,15 @@ window.addEventListener('DOMContentLoaded', (event) => {
             ],
         },
         {
+            username: 'Oxyhadron',
+            icons : [
+                {
+                    iconClass: 'icon-minecraft-diamond-horse-armor',
+                    iconText: '1',
+                }
+            ]
+        },
+        {
             username: 'tcBorek2002',
             icons: [
                 {
@@ -88,7 +97,9 @@ function createListItem(item) {
     mainDiv.appendChild(firstLine);
     item.icons.forEach(iconItem => {
         const iconDiv = document.createElement('div');
-        const text = document.createTextNode(iconItem.iconText);
+        const text = document.createElement('p');
+        text.className = 'icon-text';
+        text.appendChild(document.createTextNode(iconItem.iconText));
         const icon = document.createElement('i');
         iconDiv.style.display = 'flex';
         iconDiv.style.gap = '2%';

@@ -76,6 +76,10 @@ li h3, li div {
     margin: 0;
 }
 
+.icon-text {
+    margin: 0;
+}
+
 h1 {
     margin-bottom: 0;
 }

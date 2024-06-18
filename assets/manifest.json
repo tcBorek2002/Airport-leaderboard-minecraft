@@ -1,0 +1,16 @@
+{
+    "name": "Vliegveld donatie leaderboard",
+    "short_name": "Vliegveld Leadearboard",
+    "start_url": ".",
+    "display": "standalone",
+    "background_color": "#fff",
+    "description": "Bekijke de top donaties van het vliegveld project.",
+    "icons": [
+      {
+        "src": "favicon.png",
+        "sizes": "199x196",
+        "type": "image/png"
+      }
+    ]
+  }
+  

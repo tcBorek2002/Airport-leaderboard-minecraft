@@ -1,7 +1,7 @@
 {
     "name": "Vliegveld donatie leaderboard",
     "short_name": "Vliegveld donaties",
-    "start_url": ".",
+    "start_url": "/",
     "display": "standalone",
     "background_color": "#fff",
     "description": "Bekijke de top donaties van het vliegveld project.",

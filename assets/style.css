@@ -69,6 +69,17 @@ body, html {
     margin-top: 3%;
 }
 
+.server-status {
+    animation: blink 4s infinite;
+    animation-fill-mode: both;
+}
+
+@keyframes blink {
+    0% { opacity: 0.5 }
+    50% { opacity: 1 }
+    100% { opacity: 0.5 }
+    }
+
 .leaderboard-main {
     height: 100%;
 }

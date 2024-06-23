@@ -92,7 +92,7 @@ function loadServerStatus() {
         .then(response => response.json())
         .then(data => {
             let lastCacheHit = new Date(data.debug.cachetime * 1000);
-            let lastRefreshString = getLastRefreshedTimeString(lastCacheHit);
+            getLastRefreshedTimeString(lastCacheHit);
             if (data.online) {
                 document.querySelector('.server-status').innerText = 'Online';
                 document.querySelector('.server-status').style.color = 'rgb(42 226 27)';
@@ -118,88 +118,21 @@ function getLastRefreshedTimeString(lastRefresh) {
     let seconds = totalSeconds % 60; // Remainder is seconds beyond full minutes
     let timeAgoString;
 
-    if (minutes > 0 && seconds > 0) {
-        timeAgoString = `${minutes} minuut${minutes > 1 ? 's' : ''} en ${seconds} seconde${seconds > 1 ? 's' : ''} geleden`;
-    } else if (minutes > 0) {
-        timeAgoString = `${minutes} minuut${minutes > 1 ? 's' : ''} geleden`;
-    } else {
-        timeAgoString = `${seconds} seconde${seconds > 1 ? 's' : ''} geleden`;
-    }
-
-    document.querySelector('.last-refresh').innerText = "Laatst bijgewerkt: " + timeAgoString;
-
-    return timeAgoString;
-}
-
-let test = {
-    "ip": "217.105.22.226",
-    "port": 8880,
-    "debug": {
-        "ping": true,
-        "query": false,
-        "srv": true,
-        "querymismatch": false,
-        "ipinsrv": false,
-        "cnameinsrv": false,
-        "animatedmotd": false,
-        "cachehit": false,
-        "cachetime": 1719168624,
-        "cacheexpire": 1719168684,
-        "apiversion": 3,
-        "dns": {
-            "srv": [
-                {
-                    "name": "_minecraft._tcp.play.emphisia.nl",
-                    "type": "SRV",
-                    "class": "IN",
-                    "ttl": 300,
-                    "rdlength": 0,
-                    "rdata": "",
-                    "priority": 0,
-                    "weight": 5,
-                    "port": 8880,
-                    "target": "_dc-srv.e2388e728bc9._minecraft._tcp.play.emphisia.nl"
-                }
-            ],
-            "srv_a": [
-                {
-                    "name": "_dc-srv.e2388e728bc9._minecraft._tcp.play.emphisia.nl",
-                    "type": "A",
-                    "class": "IN",
-                    "ttl": 300,
-                    "rdlength": 0,
-                    "rdata": "",
-                    "address": "217.105.22.226"
-                }
-            ]
-        },
-        "error": {
-            "query": "Failed to read from socket."
+    // Start a loop to update the time every second
+    setInterval(() => {
+        if (minutes > 0 && seconds > 0) {
+            timeAgoString = `${minutes} ${minutes > 1 ? 'minuten' : 'minuut'} en ${seconds} seconde${seconds > 1 ? 's' : ''} geleden`;
+        } else if (minutes > 0) {
+            timeAgoString = `${minutes} ${minutes > 1 ? 'minuten' : 'minuut'} geleden`;
+        } else {
+            timeAgoString = `${seconds} seconde${seconds > 1 ? 's' : ''} geleden`;
         }
-    },
-    "motd": {
-        "raw": [
-            "Jeanette heet u welkom"
-        ],
-        "clean": [
-            "Jeanette heet u welkom"
-        ],
-        "html": [
-            "Jeanette heet u welkom"
-        ]
-    },
-    "players": {
-        "online": 0,
-        "max": 20
-    },
-    "version": "1.20.6",
-    "online": true,
-    "protocol": {
-        "version": 766,
-        "name": "1.20.6"
-    },
-    "hostname": "_dc-srv.e2388e728bc9._minecraft._tcp.play.emphisia.nl",
-    "icon": "data:image/png;base64,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",
-    "software": "Paper",
-    "eula_blocked": false
+    
+        document.querySelector('.last-refresh').innerText = "Laatst bijgewerkt: " + timeAgoString;
+        seconds++;
+        if (seconds > 59) {
+            seconds = 0;
+            minutes++;
+        }
+    }, 1000);
 }
